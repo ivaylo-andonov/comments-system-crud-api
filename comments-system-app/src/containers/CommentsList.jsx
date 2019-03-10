@@ -1,26 +1,29 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
-import Comments from '../components/CommentList'
+import Comment from '../components/Comment'
 import { fetchComments } from '../actions/comments.actions';
 
-class CommentsList extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            showExportPopup: false
-        };
-    }
+class CommentsList extends PureComponent {
 
     componentDidMount() {
         this.props.fetchComments();
     }
 
     render() {
+        console.log('Comments render called');
+        const { comments } = this.props;
         return (
-            <>
-                <Comments data={this.props.comments} />
-            </>
+            <div>
+                {comments.map(comment =>
+                    <Comment
+                        key={comment._id}
+                        text={comment.text}
+                        author={comment.author}
+                        dateCreated={comment.dateCreated}
+                        commentId={comment._id}
+                    />
+                )}
+            </div>
         )
     }
 }

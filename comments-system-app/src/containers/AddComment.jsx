@@ -7,18 +7,20 @@ class AddComment extends Component {
 
   constructor(props) {
     super(props);
+    this.formRef = null;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    this.props.addComment(data);
+    const formData = new FormData(event.target);
+    this.props.addComment(formData);
+    this.formRef.reset();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} ref={(ref) => this.formRef = ref} >
         <div>
           <label htmlFor="author">Author Name</label>
           <input id="author" name="author" type="text" />
@@ -34,7 +36,7 @@ class AddComment extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addComment: (data) => dispatch(addComment(data))
+  addComment: (data) => dispatch(addComment(data)),
 })
 
 export default connect(null, mapDispatchToProps)(AddComment)

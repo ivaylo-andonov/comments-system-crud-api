@@ -25,16 +25,6 @@ module.exports = function (router) {
         });
     });
 
-    router.route('/:id').get(function (req, res) {
-        let id = req.params.id;
-        const details = {
-            '_id': new ObjectID(id)
-        };
-        Comment.findById(details, function (err, comment) {
-            res.json(comment);
-        });
-    });
-
     router.route('/add').post(function (req, res) {
         let comment = new Comment(req.body);
         comment.dateCreated = Date(Date.now()).toString();
