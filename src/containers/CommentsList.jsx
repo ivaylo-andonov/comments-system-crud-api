@@ -1,20 +1,19 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Comment from '../components/Comment'
 import { fetchCommentsData } from '../actions/comments.actions';
+import Comment from './Comment'
 import PropTypes from 'prop-types'
 
-class CommentsList extends PureComponent {
+class CommentsList extends Component {
 
     componentDidMount() {
         this.props.fetchComments();
     }
 
     render() {
-        const { comments } = this.props;
         return (
             <div className='comments-list'>
-                {comments.map(comment =>
+                {this.props.comments.map((comment) =>
                     <Comment
                         key={comment._id}
                         id={comment._id}

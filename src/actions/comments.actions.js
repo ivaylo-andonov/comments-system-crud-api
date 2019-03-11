@@ -33,10 +33,22 @@ export const addComment = (commentData) => {
 export const deleteComment = (id) => {
   return async (dispatch) => {
     return axios.post(`${API_URL}/delete/${id}`)
-      .then(function (response) {
+      .then(() => {
         dispatch(fetchCommentsData());
       })
-      .catch(function (error) {
+      .catch((error) => {
+        dispatch(requestFailed(error));
+      })
+  };
+}
+
+export const editComment = (id, text) => {
+  return async (dispatch) => {
+    return axios.post(`${API_URL}/update/${id}`, qs.stringify({ text: text }))
+      .then(() => {
+        dispatch(fetchCommentsData());
+      })
+      .catch((error) => {
         dispatch(requestFailed(error));
       })
   };

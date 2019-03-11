@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Button, FormControl, Form } from 'react-bootstrap'
 import { addComment } from '../actions/comments.actions';
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const maxLengthInput = 100;
 
-class AddComment extends Component {
+class AddComment extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -39,26 +39,25 @@ class AddComment extends Component {
 
   canBeSubmitted() {
     const { author, text } = this.state;
-    return author && author.length <= maxLengthInput &&
-      text && text.length <= maxLengthInput
+    return author !== '' && author.length <= maxLengthInput &&
+      text !== '' && text.length <= maxLengthInput
   }
-
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit} className='add-comment-form'>
-          <Form.Label >Your name</Form.Label>
-          <FormControl
-            name="author"
-            type="text"
-            value={this.state.author}
-            onChange={this.handleAuthorChange} />
-          <Form.Label >Your comment</Form.Label>
-          <FormControl
-            name="text"
-            type="text"
-            value={this.state.text}
-            onChange={this.handleTextChange} />
+        <Form.Label >Your name</Form.Label>
+        <FormControl
+          name="author"
+          type="text"
+          value={this.state.author}
+          onChange={this.handleAuthorChange} />
+        <Form.Label >Your comment</Form.Label>
+        <FormControl
+          name="text"
+          type="text"
+          value={this.state.text}
+          onChange={this.handleTextChange} />
         <Button type='submit' disabled={!this.canBeSubmitted()}>Submit</Button>
       </Form>
     )

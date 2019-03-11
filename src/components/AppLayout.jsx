@@ -9,7 +9,7 @@ const AppLayout = ({ children }) => {
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>Endava</Navbar.Text>
                 </Navbar.Collapse>
-            </Navbar>;
+            </Navbar>
             <div className="container">
                 {children}
             </div>

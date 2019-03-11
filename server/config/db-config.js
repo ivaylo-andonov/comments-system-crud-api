@@ -1,4 +1,4 @@
 module.exports = {
-    dbUser: 'ivayloandonov',
-    dbPass: 'hlebarka3'
+    dbUser: 'iandonov',
+    dbPass: 'test12345'
 }

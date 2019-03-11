@@ -47,9 +47,7 @@ module.exports = function (router) {
             if (!comment) {
                 res.status(404).send(`Comment with provided ID (${req.params.id})is not found`);
             } else {
-                comment.author = req.body.author;
                 comment.text = req.body.text;
-                comment.dateCreated = Date(Date.now()).toString();
             }
 
             comment.save().then(comment => {
