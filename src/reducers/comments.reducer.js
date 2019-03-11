@@ -1,5 +1,5 @@
 import {
-  FETCH_FAILED,
+  REQUEST_FAILED,
   UPDATE_COMMENTS
 } from '../actions/comments.actions'
 
@@ -13,14 +13,14 @@ const commentsReducer = (state = INITIAL_STATE, action) => {
     case UPDATE_COMMENTS:
       return {
         ...state,
+        error: null,
         comments: action.payload
       };
-    case FETCH_FAILED:
+    case REQUEST_FAILED:
       return {
         ...state,
         error: action.payload.data
       };
-
     default:
       return state;
   }

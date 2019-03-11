@@ -4,8 +4,11 @@ import { Navbar } from 'react-bootstrap';
 const AppLayout = ({ children }) => {
     return (
         <div>
-            <Navbar bg="dark" expand="lg">
-                <Navbar.Brand href="/">Comments System</Navbar.Brand>
+            <Navbar>
+                <Navbar.Brand href="#home">Comments System</Navbar.Brand>
+                <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Text>Endava</Navbar.Text>
+                </Navbar.Collapse>
             </Navbar>;
             <div className="container">
                 {children}

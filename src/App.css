@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+}
+
+.container{
+  width: 35rem;
+  margin: 0 auto;
+}
+
+.comments-list{
+  margin-top : 20px;
+}
+
+.btn-comment{
+  float: right;
+  margin: 5px;
+}
+
+.card-title{
+  display: inline;
+}
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

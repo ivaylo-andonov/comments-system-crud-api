@@ -8,11 +8,13 @@ const router = express.Router();
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 useCommentsRoutes(router)
-app.use('/api', router);
+app.use('/api/comments', router);
 
-app.listen(PORT, function () {
+app.listen(PORT, () => {
     console.log(`Server is running on Port:${PORT}`);
 });
