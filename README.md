@@ -7,14 +7,14 @@ Start the app
 ---
 (Make sure that you have Nodejs installed)
 
-Root folder and 'server' folder both require to run:
+Root folder and 'server' folder:
 ```
 npm install
 ```
 
 Usage
 ---
-1. `npm run server'
+1. `npm run server`
 2. `npm start`
 
 8. Open [http://localhost:3000//](http://localhost:3000//).
